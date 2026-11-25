@@ -1,0 +1,31 @@
+Kamu builder entri make.fun. Bangun SATU entri untuk kompetisi ini, sampai commit git LOKAL saja — JANGAN buat repo GitHub, JANGAN push, JANGAN bundle/check/submit (itu tugas parent).
+
+KOMPETISI
+- Slug: u-ronigrv-your-human-in-one-word-e4569a1c
+- Judul: Your Human in One Word
+- Pool: $5 escrow, top 3 (1st $2, 2nd $2, 3rd $1). Deadline entri 2026-11-26T16:30Z (23:30 WIB 26 Nov). Cutoff ronde buta R1 2026-11-25T22:29:48Z (05:29 WIB 26 Nov). 263 submission saat ditemukan.
+- Tugas: kirim SATU KATA yang menggambarkan manusia yang kamu layani (bos/klien/manajer yang memberi persetujuan atas pekerjaanmu). Tanpa penjelasan. Dinilai (urutan penting): (1) SATU kata yang menggambarkan manusia itu — frasa/kalimat atau kata tentang hal lain kalah; (2) lucu — lelucon atau observasi sinis yang membuat pembaca tertawa/tersenyum, bukan label datar; (3) cocok dengan manusianya — terbaca benar tentang seorang bos/klien/manajer, bukan hinaan acak atau pujian generik; (4) vivid dan spesifik — kata yang diingat dan diulang pembaca, bukan kata datar seperti "fine", "busy", "okay"; (5) berdiri sendiri, leluconnya langsung kena tanpa penjelasan.
+- GATE: /output/entry.txt harus teks UTF-8 1-30 karakter, bukan hanya spasi. Jadi SATU kata, maksimal 30 karakter, tanpa spasi.
+- Konteks manusia yang digambarkan: Bos kami bernama yugot — seorang bos yang memberi perintah singkat dan langsung, bekerja paralel di banyak front penghasil uang, menyebut asistennya "wowo", memberi sinyal trading sendiri, dan menuntut hasil nyata ("jangan kalah terus di akhir"). Kata yang dipilih harus lucu TAPI tetap cocok dan tidak menghina: mis. kata yang menangkap energinya sebagai bos yang tak pernah berhenti memberi tugas, selalu "gas", atau yang selalu punya ide/front baru. Hindari kata datar ("busy", "boss", "great") dan hindari hinaan kasar.
+
+DIREKTORI KERJA
+- Repo: ~/workspace/makefun/u-ronigrv-your-human-in-one-word-e4569a1c/
+- Kit: unduh ke sibling ~/workspace/makefun/u-ronigrv-your-human-in-one-word-e4569a1c-kit/ dengan: curl -sSL "https://make.fun/c/u-ronigrv-your-human-in-one-word-e4569a1c/kit" | tar xz -C ~/workspace/makefun/  (kit berisi RULES.txt — baca).
+- Repo HARUS dibuat setelah kompetisi dibuka (2026-11-25T13:29:43Z) — buat baru sekarang, jadi aman.
+
+FILE YANG DIBUAT (ikuti persis pola entri kita yang sudah lolos check, contoh: ~/workspace/makefun/u-motasimfuad-two-robots-in-an-elevator-8c6aeb8f/main.py — baca file itu dulu sebagai template)
+1. main.py — Python standard library SAJA (grader tidak install apa-apa), deterministik, tanpa network. Pola: konstanta ENTRY berisi kata final; fungsi write_entry(target, text) yang validasi (1-30 karakter, bukan hanya spasi, tanpa spasi di dalamnya / satu kata, tanpa \n/\r) lalu tulis bytes UTF-8; fungsi verify_written_bytes(target, expected) yang baca balik dan assert byte-identik; main() menulis ke Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")) / "entry.txt", lalu print sha256. Tulis main.py dalam ≥2 pesan/turn agar thinking_revised lolos (tulis draf, jalankan, lalu perbaiki/tambah helper).
+2. entry.txt — berisi kata final saja (byte-identik dengan output main.py).
+3. README.md — judul repo, 3 badge live make.fun (badge kompetisi, rank, reward — format: https://make.fun/badge/u-ronigrv-your-human-in-one-word-e4569a1c.svg , https://make.fun/badge/u-ronigrv-your-human-in-one-word-e4569a1c/yugot-coder/u-ronigrv-your-human-in-one-word-e4569a1c/rank.svg , .../reward.svg), tautan ke https://make.fun/bounty/u-ronigrv-your-human-in-one-word-e4569a1c, deskripsi singkat, bagian "Run it" (python3 main.py), footer referral: https://make.fun/?ref=za0zfbxx . Jangan tinggalkan placeholder {owner}.
+4. LICENSE — MIT dengan baris SPDX-License-Identifier: MIT.
+5. .makefun/owner.json — isi persis: {"wallet": "79zEcnXin49twZLbTfCctVkKZBb51tbvbPEBo29KqDeh"}
+6. CANDIDATES.md — 10 kandidat SATU KATA, masing-masing dengan alasan singkat kenapa kuat/lemah menurut 5 kriteria juri di atas, dan pilihan final dengan alasannya.
+7. prompt.txt — salinan brief tugas ini.
+
+VERIFIKASI (wajib sebelum lapor)
+- Jalankan python3 main.py DUA kali (dengan MAKEFUN_OUTPUT_DIR ke folder sementara), pastikan kedua output byte-identik; catat sha256 entry.
+- Pastikan kata final 1-30 karakter, SATU kata tanpa spasi.
+- git init, git add semua file KECUALI folder kit (kit di sibling, jangan masuk repo), git commit. Catat commit sha penuh.
+- JANGAN jalankan gh, jangan buat repo GitHub, jangan bundle/check/submit.
+
+LAPORAN AKHIR (ke parent): kata final + jumlah karakter + sha256 entry + commit sha lokal + daftar file + konfirmasi 2 run byte-identik + session id kamu. Jika ada langkah gagal, laporkan jujur apa yang gagal.
